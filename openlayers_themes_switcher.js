@@ -242,7 +242,7 @@ function changeImageOl(baseUrl) {
 }
 function chgpage(formulaire) {
   if (formulaire.listepages.selectedIndex !== 0) {
-    changeImageOl("color/" + formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
+    changeImageOl("http://mapserver.analysesig.net/js/openlayers/examples/" + "color/" + formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
     changeColorSwitcher(formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
     //alert(formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
   }
@@ -272,3 +272,4 @@ function init() {
   map.setCenter(new OpenLayers.LonLat(2.79052734375, 46.73583984375), 6)
   if (!map.getCenter()) map.zoomToMaxExtent();
 }
+
