@@ -242,7 +242,7 @@ function changeImageOl(baseUrl) {
 }
 function chgpage(formulaire) {
   if (formulaire.listepages.selectedIndex !== 0) {
-    changeImageOl("http://mapserver.analysesig.net/js/openlayers/examples/" + "color/" + formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
+    changeImageOl("http://mapserver.analysesig.net/js/openlayers/examples/" + "color_no_opacity/" + formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
     changeColorSwitcher(formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
     //alert(formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
   }
