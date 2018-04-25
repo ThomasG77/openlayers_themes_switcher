@@ -260,10 +260,10 @@ function init() {
   var stamen = new OpenLayers.Layer.XYZ(
       "Toner-lite",
       [
-          "https://a.tile.stamen.com/toner-lite/${z}/${x}/${y}.png",
-          "https://b.tile.stamen.com/toner-lite/${z}/${x}/${y}.png",
-          "https://c.tile.stamen.com/toner-lite/${z}/${x}/${y}.png",
-          "https://d.tile.stamen.com/toner-lite/${z}/${x}/${y}.png"
+          "https://stamen-tiles-a.a.ssl.fastly.net/toner-lite/${z}/${x}/${y}.png",
+          "https://stamen-tiles-b.a.ssl.fastly.net/toner-lite/${z}/${x}/${y}.png",
+          "https://stamen-tiles-c.a.ssl.fastly.net/toner-lite/${z}/${x}/${y}.png",
+          "https://stamen-tiles-d.a.ssl.fastly.net/toner-lite/${z}/${x}/${y}.png",
       ],
       {
           attribution: [
