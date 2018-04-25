@@ -274,7 +274,8 @@ function init() {
           ].join(""),
           "minZoom":      0,
           "maxZoom":      20,
-          sphericalMercator: true
+          sphericalMercator: true,
+          wrapDateLine: true
       }
   );
 
