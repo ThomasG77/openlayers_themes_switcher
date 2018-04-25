@@ -242,7 +242,7 @@ function changeImageOl(baseUrl) {
 }
 function chgpage(formulaire) {
   if (formulaire.listepages.selectedIndex !== 0) {
-    changeImageOl("http://mapserver.analysesig.net/" + "color_no_opacity/" + formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
+    changeImageOl("colors/" + formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
     changeColorSwitcher(formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
     //alert(formulaire.listepages.options[formulaire.listepages.selectedIndex].value);
   }
@@ -257,19 +257,31 @@ function init() {
     }), new OpenLayers.Control.Permalink(), new OpenLayers.Control.ScaleLine(), new OpenLayers.Control.Permalink('permalink'), new OpenLayers.Control.MousePosition(), new OpenLayers.Control.OverviewMap(), new OpenLayers.Control.KeyboardDefaults()],
     numZoomLevels: 12
   });
-  var basic = new OpenLayers.Layer.WMS("Contours émergés", "http://mapserver.analysesig.net/cgi-bin/world", {
-    layers: '10m_land',
-    transparent: "true"
-  });
-  var countries = new OpenLayers.Layer.WMS("Limites administratives", "http://mapserver.analysesig.net/cgi-bin/world", {
-    layers: '10m_admin_0_countries',
-    transparent: "true"
-  });
-  var ol_wms = new OpenLayers.Layer.WMS("Natural Earth Data 1:10m", "http://mapserver.analysesig.net/cgi-bin/world", {
-    layers: 'natural_data_1_10_all'
-  });
-  map.addLayers([ol_wms, basic, countries]);
-  map.setCenter(new OpenLayers.LonLat(2.79052734375, 46.73583984375), 6)
+  var stamen = new OpenLayers.Layer.XYZ(
+      "Toner-lite",
+      [
+          "http://a.tile.stamen.com/toner-lite/${z}/${x}/${y}.png",
+          "http://b.tile.stamen.com/toner-lite/${z}/${x}/${y}.png",
+          "http://c.tile.stamen.com/toner-lite/${z}/${x}/${y}.png",
+          "http://d.tile.stamen.com/toner-lite/${z}/${x}/${y}.png"
+      ],
+      {
+          attribution: [
+              'Map tiles by <a href="http://stamen.com/">Stamen Design</a>, ',
+              'under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. ',
+              'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, ',
+              'under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+          ].join(""),
+          "minZoom":      0,
+          "maxZoom":      20,
+          sphericalMercator: true
+      }
+  );
+
+
+  map.addLayers([stamen]);
+  map.setCenter(new OpenLayers.LonLat(437219.80173032, 5918824.8474104), 3);
+  chgpage(document.querySelector('form'));
   if (!map.getCenter()) map.zoomToMaxExtent();
 }
 
